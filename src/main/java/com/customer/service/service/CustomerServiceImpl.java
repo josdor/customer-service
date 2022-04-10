@@ -7,10 +7,8 @@ import com.customer.service.entity.Customer;
 import com.customer.service.mapper.CustomerMapper;
 import org.springframework.stereotype.Service;
 
-import java.rmi.server.UID;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service

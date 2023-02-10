@@ -5,6 +5,9 @@ import com.customer.service.dto.CustomerRequestDto;
 import com.customer.service.dto.CustomerResponseDto;
 import com.customer.service.entity.Customer;
 import com.customer.service.mapper.CustomerMapper;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +16,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
+	
+	private static Logger LOG = LogManager.getLogger(CustomerServiceImpl.class);
 
     CustomerRepository customerRepository;
 
@@ -25,7 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponseDto save(CustomerRequestDto requestDto) {
+    	LOG.info("save processing start ...");
         Customer customer = mapper.customerDtoToCustomer(requestDto);
+        LOG.info(Optional.ofNullable(customer)
+        	.map(Customer::getId)
+        	.orElse("Customer ID not found"));
+        
         //customer.setId(UUID.randomUUID().toString());
         return mapper.customerToCustomerDto(customerRepository.save(customer));
     }

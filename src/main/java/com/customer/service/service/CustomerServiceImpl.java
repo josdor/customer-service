@@ -37,6 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
         	.orElse("Customer ID not found"));
         
         //customer.setId(UUID.randomUUID().toString());
+        LOG.info("... end processing");
         return mapper.customerToCustomerDto(customerRepository.save(customer));
     }
 

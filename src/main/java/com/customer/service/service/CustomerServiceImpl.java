@@ -61,6 +61,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerResponseDto> getList() {
+	LOG.info("Recuperation de toute la liste des clients");
         return this.customerRepository.findAll().stream()
                 .map(customer -> this.mapper.customerToCustomerDto(customer))
                 .collect(Collectors.toList());

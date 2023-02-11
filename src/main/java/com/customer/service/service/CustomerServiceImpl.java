@@ -30,14 +30,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponseDto save(CustomerRequestDto requestDto) {
-    	LOG.info("save processing start ...");
+    	LOG.info("Start of customer creation process ...");
         Customer customer = mapper.customerDtoToCustomer(requestDto);
         LOG.info(Optional.ofNullable(customer)
         	.map(Customer::getId)
         	.orElse("Customer ID not found"));
         
         //customer.setId(UUID.randomUUID().toString());
-        LOG.info("... end processing");
+        LOG.info("... end of customer creation process");
         return mapper.customerToCustomerDto(customerRepository.save(customer));
     }
 

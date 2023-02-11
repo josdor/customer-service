@@ -17,12 +17,13 @@ import java.util.stream.Collectors;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
-	private static Logger LOG = LogManager.getLogger(CustomerServiceImpl.class);
+    private static Logger LOG = LogManager.getLogger(CustomerServiceImpl.class);
 
     CustomerRepository customerRepository;
 
     CustomerMapper mapper;
-
+    
+    /** Contructeur */
     public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper mapper) {
         this.customerRepository = customerRepository;
         this.mapper = mapper;

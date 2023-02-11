@@ -43,7 +43,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponseDto getCustomer(String id) {
+    	LOG.info("démarrage du traiment de récupération du client ... ");
         Optional<Customer> customerOptional = customerRepository.findById(id);
+    	LOG.info(" ... fin du traiment de récupération du client");
         return this.mapper.customerToCustomerDto(customerOptional.orElse(null));
     }
 

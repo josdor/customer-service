@@ -32,6 +32,7 @@ public class CustomerController {
 
     @GetMapping("/customers")
     public ResponseEntity<List<CustomerResponseDto>> getListCustomers() {
+    	LOG.info("obtenir la liste de tous les clients");
         return new ResponseEntity<>(customerService.getList(), HttpStatus.OK);
     }
 

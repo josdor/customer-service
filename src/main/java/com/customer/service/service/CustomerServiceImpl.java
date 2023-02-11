@@ -30,6 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    /** Methoc qui permet de creer un client dans le systeme */
     public CustomerResponseDto save(CustomerRequestDto requestDto) {
     	LOG.info("Start of customer creation process ...");
         Customer customer = mapper.customerDtoToCustomer(requestDto);

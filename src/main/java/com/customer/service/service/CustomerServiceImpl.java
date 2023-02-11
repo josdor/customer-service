@@ -51,8 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerResponseDto update(CustomerRequestDto requestDto) {
+    	LOG.info("démarrage du traiment de MAJ du client ... ");
         Customer customerNew = this.mapper.customerDtoToCustomer(requestDto);
         Optional<Customer> customerOld = Optional.ofNullable(this.mapper.customerNewToCustomerOld(customerNew));
+        LOG.info(" ... fin du traiment de MAJ du client");
 
         return this.mapper.customerToCustomerDto(this.customerRepository.save(customerOld.orElse(null)));
     }

@@ -39,6 +39,7 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public ResponseEntity<CustomerResponseDto> createCustomer(@RequestBody CustomerRequestDto customerRequestDto) {
+        LOG.info("ajout d'un client");
         return new ResponseEntity<>(customerService.save(customerRequestDto), HttpStatus.CREATED);
     }
 
